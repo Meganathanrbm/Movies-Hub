@@ -1,0 +1,40 @@
+  .playbtn svg {
+    width: 100%;
+  } 
+  
+  .playbtn .text {
+    font-size: 20px;
+    transition: all 0.7s ease-in-out;
+  }
+  
+  .playbtn .triangle {
+    stroke-dasharray: 240;
+    stroke-dashoffset: 480;
+    stroke: white;
+    transform: translateY(0);
+    transition: all 0.7s ease-in-out;
+  }
+  
+  .playbtn .circle {
+    stroke: white;
+    stroke-dasharray: 650;
+    stroke-dashoffset: 1300;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .playbtn:hover .text {
+    color: orangered;
+  }
+  
+  .playbtn:hover .triangle {
+    stroke-dashoffset: 0;
+    opacity: 1;
+    stroke: orangered;
+    animation: trailorPlay 0.7s ease-in-out;
+  }
+  
+  .playbtn:hover .circle {
+    stroke-dashoffset: 0;
+    stroke: orangered;
+  }
+  

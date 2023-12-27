@@ -1,13 +1,104 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+@keyframes smoothScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@layer components {
+  .max-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .center{
+    @apply
+    flex
+    justify-center
+    items-center
+  }
+  .loginBtn{
+    @apply
+  border-coral-red
+  bg-red-500
+  text-white
+    font-bold
+    px-3
+    py-2
+    w-full
+    mt-2
+    rounded-[20px]
+    uppercase 
+  }
+  .signinBtn{
+    @apply
+  border-white
+  text-white
+  border-2
+    font-bold
+    px-3
+    py-2
+    w-full
+    mt-2
+    rounded-[20px]
+    uppercase 
+  }
+
+}
+
+@layer utilities {
+  .padding {
+    @apply
+        sm:p-16
+        p-8
+  }
+
+  .padding-x {
+    @apply 
+        sm:px-16 
+        px-8;
+      
+  }
+
+  .padding-y {
+    @apply 
+    sm:py-24 
+    py-12;
+  }
+
+  .padding-l {
+    @apply sm:pl-16 pl-8;
+  }
+
+  .padding-r {
+    @apply sm:pr-16 pr-8;
+  }
+
+  .padding-t {
+    @apply sm:pt-24 pt-12;
+  }
+
+  .padding-b {
+    @apply sm:pb-24 pb-12;
+  }
+  
+
 }
