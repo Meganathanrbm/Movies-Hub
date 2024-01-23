@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
@@ -10,10 +10,11 @@ import { empty_arr, imageUrl } from "../constants";
 import { imdb } from "../assets";
 import { Rating } from "@mui/material";
 import CButton from "../components/CButton";
-import getTrailer from "../utils/getTrailer";
 import useScrennWidth from "../hooks/useScrennWidth";
-import { PlayIcon } from "../assets/playBtn/PlayIcon";
 import { useNavigate } from "react-router-dom";
+import WatchTrailer from "../components/WatchTrailer";
+import Modal from "../components/Modal";
+
 
 const Home = () => {
   const movies = useSelector((state) => state.movies.nowPlayingMovies);
@@ -21,8 +22,21 @@ const Home = () => {
   const navigate = useNavigate();
   const handleClick = (id) => {
     navigate("/details/" + id);
-    window.location.reload();
+    // window.location.reload();
   };
+
+  // for modal
+  const [visibleModal, setVisibleModal] = useState(false);
+  const toggleModal = () => {
+    setVisibleModal((prev) => !prev);
+  };
+  useEffect(() => {
+    if (visibleModal) {
+      document.body.classList.add("active_modal");
+    } else {
+      document.body.classList.remove("active_modal");
+    }
+  }, []);
   return (
     <section className="">
       <Swiper
@@ -30,7 +44,7 @@ const Home = () => {
         centeredSlides={true}
         navigation={screenWidth > 767}
         autoplay={{
-          delay: 5000,
+          delay: 6000,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -96,28 +110,25 @@ const Home = () => {
 
                   {/* right side of the slide */}
                   <div className="flex-[2] center hidden lg:flex">
-                    <div
-                      onClick={() => getTrailer(movie.id)}
-                      className="playbtn center gap-4 group hover:cursor-pointer hover:text-red-500"
-                    >
-                      <PlayIcon name="playbtn" />
-                      <h3
-                        style={{ wordSpacing: "0.25em" }}
-                        className="text-2xl font-montserrat text-white transition duration-200 ease-in capitalize font-normal group-hover:text-red-500"
-                      >
-                        WATCH TRAILER
-                      </h3>
-                    </div>
+                    <WatchTrailer
+                      movieId={movie.id}
+                      visibleModal={visibleModal}
+                      toggleModal={toggleModal}
+                    />
                   </div>
                 </div>
               </SwiperSlide>
             ))
           : empty_arr.map((item, i) => (
-              <SwiperSlide key={i} className="w-screen  relative center  md:min-h-screen md:mt-[-90px] h-auto mt-[-70px] overflow-hidden">
+              <SwiperSlide
+                key={i}
+                className="w-screen  relative center  md:min-h-screen md:mt-[-90px] h-auto mt-[-70px] overflow-hidden"
+              >
                 <div className="absolute bg-gray-200 animate-pulse  dark:bg-gray-700 w-full h-full rounded-lg"></div>
               </SwiperSlide>
             ))}
       </Swiper>
+      {visibleModal && <Modal toggleModal={toggleModal} />}
     </section>
   );
 };

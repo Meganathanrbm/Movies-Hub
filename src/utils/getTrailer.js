@@ -9,11 +9,10 @@ const getTrailer = async (movieId) => {
         process.env.REACT_APP_MOVIES_API_KEY +
         "&append_to_response=videos"
     );
-     const videoId = response.data.videos.results[0].key;
-     const trailerLink = "https://www.youtube.com/watch?v=" + videoId;
-     // to open youtube video link in new tab
-    return window.open(trailerLink,'_blank')
-
+    const videoId = response.data.videos.results[0].key;
+    const trailerLink =
+      "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
+    return trailerLink;
   } catch (err) {
     console.log(err);
   }

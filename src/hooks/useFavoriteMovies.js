@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import { firebaseDbUrl } from "../constants";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch  } from "react-redux";
 import axios from "axios";
 import { userActions } from "../utils/store/userSlice";
 

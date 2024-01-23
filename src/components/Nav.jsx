@@ -80,12 +80,12 @@ const Nav = () => {
               <PersonIcon className="w-7 h-7 " />
             </div>
 
-            <div className="">
+            <div className="ml-6">
               <span className="block text-base min-w-[130px] capitalize text-gray-900 dark:text-white">
                 {userName}
               </span>
-              <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
-                {email}
+              <span className="block text-sm lowercase break-words text-gray-500 truncate dark:text-gray-400">
+                {email.length > 10 ? email.slice(0,10)+"...": email}
               </span>
             </div>
           </span>

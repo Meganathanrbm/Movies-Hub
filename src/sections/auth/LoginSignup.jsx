@@ -30,12 +30,12 @@ const LoginSignup = ({toggleSign}) => {
   },[toggleSign]);
 
   return (
-    <section className="flex justify-center items-center w-screen h-screen  ">
+    <section className="flex justify-center bg-black items-center w-screen h-screen  ">
       <img
         src={loginBg}
-        alt=""
+        alt="loginBackgroundImage"
         style={{ filter: 'brightness(50%)' }}
-        className="absolute z-0 w-full h-full object-cover object-center"
+        className="absolute z-0  w-screen h-screen object-cover object-center"
       />
       <div className="overflow-hidden  shadow-3xl bg-white  rounded-lg relative 
         max-sm:w-[324px] max-sm:h-[600px] max-md:w-[384px] max-md:h-[640px] w-[768px] min-h-[480px]">

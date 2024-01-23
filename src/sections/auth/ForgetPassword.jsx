@@ -4,10 +4,10 @@ import ForgetPasswordForm from '../../components/ForgetPasswordForm'
 
 const ForgetPassword = () => {
   return (
-    <section className="flex justify-center items-center w-screen h-screen  ">
+    <section className="flex justify-center items-center bg-black w-screen h-screen  ">
       <img
         src={loginBg}
-        alt=""
+        alt="background-image"
         style={{ filter: 'brightness(50%)' }}
         className="absolute z-0 w-full h-full object-cover object-center"
       />

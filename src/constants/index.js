@@ -42,7 +42,8 @@ export const options = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYmI3N2ZhMWYxZjJiMTkwMDY2ZWQyMjFiNTlkZTRjZSIsInN1YiI6IjY1NTA5NDNiNjdiNjEzNDVkYmJlYTRkYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8U5lJ6SkTbjRsYNhenZ9YcdgQ0uebIByC2b3ZxazXxs",
   },
 };
-export const empty_arr = [1,2,3,4,5,6,7,8,9,10];
+export const empty_arr = Array(10).fill("1");
+
 export const moviesUrls = {
   popularMovies:
     "https://api.themoviedb.org/3/movie/popular?language=en-US&page=",

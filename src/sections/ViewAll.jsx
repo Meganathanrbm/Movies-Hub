@@ -4,7 +4,6 @@ import { viewAllBg } from "../assets";
 import { useDispatch, useSelector } from "react-redux";
 import { empty_arr } from "../constants";
 import CButton from "../components/CButton";
-import useScrennWidth from "../hooks/useScrennWidth";
 import loadMoreMovies from "../utils/loadMoreMovies";
 import CircularProgress from '@mui/material/CircularProgress';
 import {

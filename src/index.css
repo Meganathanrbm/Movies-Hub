@@ -19,6 +19,7 @@
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(100%);
   }
@@ -29,59 +30,33 @@
     max-width: 1440px;
     margin: 0 auto;
   }
-  .center{
-    @apply
-    flex
-    justify-center
-    items-center
+
+  .center {
+    @apply flex justify-center items-center
   }
-  .loginBtn{
-    @apply
-  border-coral-red
-  bg-red-500
-  text-white
-    font-bold
-    px-3
-    py-2
-    w-full
-    mt-2
-    rounded-[20px]
-    uppercase 
+
+  .loginBtn {
+    @apply border-coral-red bg-red-500 text-white font-bold px-3 py-2 w-full mt-2 rounded-[20px] uppercase
   }
-  .signinBtn{
-    @apply
-  border-white
-  text-white
-  border-2
-    font-bold
-    px-3
-    py-2
-    w-full
-    mt-2
-    rounded-[20px]
-    uppercase 
+
+  .signinBtn {
+    @apply border-white text-white border-2 font-bold px-3 py-2 w-full mt-2 rounded-[20px] uppercase
   }
 
 }
 
 @layer utilities {
   .padding {
-    @apply
-        sm:p-16
-        p-8
+    @apply sm:p-16 p-8
   }
 
   .padding-x {
-    @apply 
-        sm:px-16 
-        px-8;
-      
+    @apply sm:px-16 px-8;
+
   }
 
   .padding-y {
-    @apply 
-    sm:py-24 
-    py-12;
+    @apply sm:py-24 py-12;
   }
 
   .padding-l {
@@ -99,6 +74,49 @@
   .padding-b {
     @apply sm:pb-24 pb-12;
   }
-  
 
+
+}
+
+
+/* for modal */
+body.active_modal {
+  overflow-y: hidden;
+}
+.modal , .modal_overlay{
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 90;
+}
+
+.modal_overlay{
+  background: rgba(0,0,0,0.9);
+}
+.modal_content{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: black;
+  border-radius: 3px;
+  z-index: 90;
+}
+
+.modal_close{
+  position: absolute;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  top: 25px;
+  right: 25px;
+  padding: 5px 7px;
+  z-index: 90;
 }

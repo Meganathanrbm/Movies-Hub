@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { imageUrl } from "../constants";
 import CircularRating from "./CircularRating";
 import useScrennWidth from "../hooks/useScrennWidth";
@@ -11,7 +11,8 @@ const MovieCard = (props) => {
   const navigate = useNavigate();
   const handleClick = (id) => {
     navigate("/details/" + id);
-    window.location.reload();
+    window.scrollTo(0,0);
+    // window.location.reload();
   };
 
   return (

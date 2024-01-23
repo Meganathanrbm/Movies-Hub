@@ -11,7 +11,8 @@ const SearchResults = () => {
   const [searchInput, setSearchInput] = useState("");
   const navigate = useNavigate();
   const getSearchData = async (movieName) => {
-    if (movieName === "noResult") {
+    if(movieName === "noResult" || !movieName){
+      setResults(null);
       return;
     }
     const encodedString = encodeURIComponent(movieName);
@@ -34,6 +35,9 @@ const SearchResults = () => {
   const handleSearch = () => {
     setResults(null);
     getSearchData(searchInput);
+    if(!searchInput){
+     return navigate("/searchResults/noResult");
+    }
     navigate("/searchResults/" + encodeURIComponent(searchInput));
   };
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React  from "react";
 import { useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -15,7 +15,7 @@ import MovieCardSke from "../components/skeleton/MovieCardSke";
 
 const MoviesSection = ({ title, name }) => {
   // title props specify the title of the section
-  const [isfavoriteBtn, setIsfavoriteBtn] = useState(false);
+
   const moviesList = useSelector((state) => state.movies[title]);
   const screenWidth = useScrennWidth();
 
@@ -35,7 +35,7 @@ const MoviesSection = ({ title, name }) => {
         slidesPerView={screenWidth > 1024 ? 5 : screenWidth > 767 ? 3 : 2}
         loop={false}
         autoplay={{
-          delay: title[0] === "t" ? 4000 : title[0] === "u" ? 4500 : 5500,
+          delay: title[0] === "t" ? 5500 : title[0] === "u" ? 7000 : 6500,
           disableOnInteraction: false,
         }}
         navigation={screenWidth > 767}

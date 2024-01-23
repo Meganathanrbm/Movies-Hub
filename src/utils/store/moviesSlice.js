@@ -19,12 +19,7 @@ const moviesSlice = createSlice({
       }
     },
     addTrailer: (state, action) => {
-      if (action.payload.results) {
-        state.trailer =
-          action.payload.page > 1 && state.trailer
-            ? [...state.trailer, ...action.payload.results]
-            : action.payload.results;
-      }
+      state.trailer = action.payload;
     },
     addPopularMovies: (state, action) => {
       if (action.payload.results) {
